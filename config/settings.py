@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definition 장고에게 모델을 알려주는 곳
 DJANGO_APPS=[
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +40,11 @@ DJANGO_APPS=[
 
 PROJECT_APPS =[
     'users.apps.UsersConfig',
+    #'conversations.apps.ConversationsConfig',
+    #'lists.apps.ListsConfig',
+    #'reservations.apps.ReservationsConfig',
+    #'reviews.apps.ReviewsConfig',
+    #'rooms.apps.RoomsConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
