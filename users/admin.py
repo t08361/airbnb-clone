@@ -1,3 +1,4 @@
+from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 from . import models
 
@@ -10,10 +11,23 @@ from . import models
 # list_display는 행으로 보이고자하는거, 
 # list_filter는 조건에 따라 선택적인 내용만 얻을 수있게 도와주는애
 @admin.register(models.User)
-class CustomUserAdmin(admin.ModelAdmin):
+class CustomUserAdmin(UserAdmin):
     
     """Custom User Admin"""
 
-    list_display=('id','username','gender','language','birthdate','bio','avatar','currency','superhost')
-    list_filter=('gender','bio','superhost')
-
+    fieldsets = UserAdmin.fieldsets +(
+        (
+            "Custom Profile",
+            {
+                "fields":(
+                    "avatar",
+                    "gender",
+                    "bio",
+                    "birthdate",
+                    "language",
+                    "currency",
+                    "superhost",
+                )
+            }
+        ),
+    )
